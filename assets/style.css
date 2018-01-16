@@ -1,0 +1,83 @@
+body {
+    background-color: #13293D;
+    display: flex;
+    justify-content: center;
+}
+
+.main-container {
+    border: 5px solid white;
+    border-radius: 10%;
+    width: 90%;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    margin: 25px 10px 0 10px;
+    line-height: 1.5;
+    font-family: 'Righteous', sans-serif;
+    font-size: 16px;
+}
+
+div:first-of-type {
+    margin: 35px 0;
+}
+
+div:last-of-type {
+    margin-bottom: 25px;
+}
+
+input {
+    display: block;
+    margin: 10px auto;
+}
+
+button {
+    background-color: wheat;
+    display: block;
+    margin: 10px auto;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 10px;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: darkgoldenrod;
+}
+
+p {
+    text-align: center;
+    margin: 10px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    color: white;
+}
+
+.wikipedia-btn {
+    display: block;
+    margin: 35px auto;
+}
+
+.wikipedia-btn a {
+    color: black;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 400px){
+
+    p, button {
+        font-size: 10px;
+    }
+    h1 {
+        font-size: 14px;
+    }
+    .main-container {
+        border: none;
+    }
+    input {
+        max-width: 80%;
+    }
+}
+

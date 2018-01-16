@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Code and decode using ROT13 cipher</title>
+    <link rel="stylesheet" href="external/reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Righteous" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="main-container">
+
+<h1>This app will code and decode words in ROT13 cipher.<br>
+You can pass numbers and other non-alphabetical signs<br>(including spaces),
+    but only letters will be changed.</h1>
+
+<div>
+<p>Input words which you would like to code:</p>
+<input id="cipher-input">
+    <button id="cipher-btn">Get Result</button>
+    <p id="cipher-output"></p>
+</div>
+
+<div>
+<p>Input ROT13 cipher which you would like to decode:</p>
+<input id="decipher-input">
+    <button id="decipher-btn">Get Result</button>
+    <p id="decipher-output"></p>
+</div>
+
+<button class="wikipedia-btn"><a href="https://en.wikipedia.org/wiki/ROT13" target="_blank">Learn more about ROT13 on Wikipedia</a></button>
+
+</div>
+
+<script src="external/jquery-3.2.1.min.js"></script>
+<script src="assets/cipher.js"></script>
+<script src="assets/decipher.js"></script>
+</body>
+</html>
