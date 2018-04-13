@@ -2,13 +2,17 @@ $(document).ready(function(){
 
     const $cipherInput = $('#cipher-input');
     const $cipherOutput = $('#cipher-output');
-    const $button = $('#cipher-btn');
+    const $cipherBtn = $('#cipher-btn');
+    const $decipherInput = $('#decipher-input');
+    const $decipherOutput = $('#decipher-output');
+    const $decipherBtn = $('#decipher-btn');
 
-    function codeLetterInROT13(letter) {
+    const codeOrDecodeLetter = (letter) => {
+
         if (letter.match(/[\W_]/g) || letter.match(/\d+/g)) {
             return letter
         } else {
-            let unicodeIndex = letter.charCodeAt(0);
+            const unicodeIndex = letter.charCodeAt(0);
             let newIndex;
             if (unicodeIndex <= 77) {
                 newIndex = unicodeIndex + 13;
@@ -18,26 +22,32 @@ $(document).ready(function(){
                 return String.fromCharCode(newIndex)
             }
         }
-    }
 
-    function codeStringInROT13(str) {
-        let array = str
+    };
+
+    const codeOrDecodeString = (initialString) => {
+
+        const initialArray = initialString
             .toUpperCase()
             .split('');
-        let codedArray = [];
-        for (let i = 0; i < array.length; i++) {
-            let newLetter;
-            newLetter = codeLetterInROT13(array[i]);
-            codedArray = codedArray.concat(newLetter);
-        } // end of loop
-        let codedString = codedArray.join('');
-        return codedString
-    }
 
-    $button.on('click', function() {
-        let inputValue = $cipherInput.val();
-        let decodedString = codeStringInROT13(inputValue);
-        $cipherOutput.text(decodedString)
-    });
+        const newArray = [];
+
+        initialArray.forEach(letter => {
+            const newLetter = codeOrDecodeLetter(letter);
+            newArray.push(newLetter);
+        });
+
+        return newArray.join('');
+    };
+
+    const renderOutput = (input, output) => {
+        const newString = codeOrDecodeString(input.val());
+        output.text(newString)
+
+    };
+
+    $cipherBtn.on('click', () => renderOutput($cipherInput, $cipherOutput));
+    $decipherBtn.on('click', () => renderOutput($decipherInput, $decipherOutput));
 
 });
